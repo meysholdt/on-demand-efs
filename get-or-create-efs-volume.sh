@@ -1,5 +1,4 @@
 #!/bin/bash
-# .gitpod/setup_efs.sh
 
 set -e
 
@@ -67,13 +66,4 @@ else
 fi
 
 # Get the EFS DNS name
-EFS_DNS_NAME="${VOLUME_ID}.efs.eu-central-1.amazonaws.com"
-
-# Create mount directory
-sudo mkdir -p /workspace/efs
-
-# Mount EFS volume using NFS client
-echo "Mounting EFS volume to /workspace/efs..."
-sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport ${EFS_DNS_NAME}:/ /workspace/efs
-
-echo "EFS volume mounted successfully at /workspace/efs"
+export EFS_DNS_NAME="${VOLUME_ID}.efs.eu-central-1.amazonaws.com"
