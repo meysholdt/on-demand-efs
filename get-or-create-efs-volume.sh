@@ -10,10 +10,11 @@ if [ -z "$USER_EMAIL" ]; then
     exit 1
 fi
 
-# Subnet IDs
+# CHANGE-ME: Subnets into which the mount targets will be created 
+# See https://www.gitpod.io/docs/enterprise/setup-gitpod/use-nfs-share#creating-the-nfs-share for how to chose subnets. 
 SUBNET_IDS=("subnet-0371e153d84b71cb4" "subnet-0d9d31906e208983f" "subnet-067196425e7fb51d6")
 
-# Security Group ID
+# CHANGE-ME: Your security groups that will grant acesst to the mount targets.
 SECURITY_GROUP_ID="sg-030b31eb62d8bb81f"
 
 # Check if EFS volume exists

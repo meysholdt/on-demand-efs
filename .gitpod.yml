@@ -4,12 +4,17 @@ image:
 tasks:
   - name: Postgres on EFS
     command: |
+      
+      # CHANGE-ME: Set the AWS region. 
       aws configure set region eu-central-1
 
+      # CHANGE-ME: Log into AWS and assum the following role. 
+      # Please follow Gitpod's docs (https://www.gitpod.io/docs/integrations/aws#oidc-integration-with-aws) to set up OICD
+      # and use the "policy.json" (from this repo) to grant required permissions.
       gp idp login aws --role-arn arn:aws:iam::950174689815:role/efs-on-demand
 
+      # Find the EFS volume. Create it if necessary. Store the DNS name in a .env file.
       ./get-or-create-efs-volume.sh 
       
-      # ./mount-efs-volume.sh
-
+      # Start Postgres on the EFS volume
       docker-compose up
