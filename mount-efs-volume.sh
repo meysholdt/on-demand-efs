@@ -2,6 +2,9 @@
 
 set -e
 
+# load EFS_DNS_NAME env var
+source .env
+
 # Create mount directory
 sudo mkdir -p /workspace/efs
 

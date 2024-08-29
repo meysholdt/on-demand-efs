@@ -8,9 +8,8 @@ tasks:
 
       gp idp login aws --role-arn arn:aws:iam::950174689815:role/efs-on-demand
 
-      source get-or-create-efs-volume.sh 
-
+      ./get-or-create-efs-volume.sh 
+      
       ./mount-efs-volume.sh
 
       docker-compose up
-

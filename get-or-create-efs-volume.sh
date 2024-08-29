@@ -66,7 +66,12 @@ else
 fi
 
 # Get the EFS DNS name
-export EFS_DNS_NAME="${VOLUME_ID}.efs.eu-central-1.amazonaws.com"
-echo "set EFS_DNS_NAME to "$EFS_DNS_NAME"
+EFS_DNS_NAME="${VOLUME_ID}.efs.eu-central-1.amazonaws.com"
 
-set +e
+ENV_FILE=".env"
+if [ -f "$ENV_FILE" ]; then
+    # Remove existing EFS_DNS_NAME entry if it exists
+    sed -i '/^EFS_DNS_NAME=/d' "$ENV_FILE"
+fi
+echo "EFS_DNS_NAME=$EFS_DNS_NAME" >> "$ENV_FILE"
+echo "Updated $ENV_FILE with EFS_DNS_NAME=$EFS_DNS_NAME"
