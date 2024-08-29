@@ -10,6 +10,6 @@ tasks:
 
       ./get-or-create-efs-volume.sh 
       
-      ./mount-efs-volume.sh
+      # ./mount-efs-volume.sh
 
       docker-compose up
