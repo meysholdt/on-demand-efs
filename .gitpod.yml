@@ -5,4 +5,12 @@ tasks:
   - name: Postgres on EFS
     command: |
       aws configure set region eu-central-1
+
       gp idp login aws --role-arn arn:aws:iam::950174689815:role/efs-on-demand
+
+      source get-or-create-efs-volume.sh 
+
+      ./mount-efs-volume.sh
+
+      docker-compose up
+

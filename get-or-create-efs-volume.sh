@@ -67,5 +67,6 @@ fi
 
 # Get the EFS DNS name
 export EFS_DNS_NAME="${VOLUME_ID}.efs.eu-central-1.amazonaws.com"
+echo "set EFS_DNS_NAME to "$EFS_DNS_NAME"
 
 set +e
